@@ -4,7 +4,9 @@
   "description": "create a web app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=dev webpack-dev-server --progress --colors",
+    "build": "rm -rf ./build && NODE_ENV=production webpack --config ./webpack.production.config.js --progress --colors"
   },
   "repository": {
     "type": "git",
@@ -42,6 +44,7 @@
   },
   "dependencies": {
     "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react-dom": "^15.6.1",
+    "react-router": "^2.7.0"
   }
 }
