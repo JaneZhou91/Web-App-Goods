@@ -1,7 +1,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-class Detail extends React.Component {
+class Search extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -9,10 +9,12 @@ class Detail extends React.Component {
     render() {
         return (
             <div>
-                <h1>Detail</h1>
+                <h1>Search</h1>
             </div>
         )
     }
 }
 
-module.exports = Detail
+// 使用 require.ensure 异步加载，还不支持 ES6 的 export 
+// export default Search
+module.exports = Search

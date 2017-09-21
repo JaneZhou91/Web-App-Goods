@@ -1,16 +1,19 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React from 'react'
+import PureRenderMixin from 'react-addons-pure-render-mixin'
+
 
 class Home extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+    }
     render() {
         return (
             <div>
-                <p>Home</p>
-                <Link to="/list">to list</Link>
-
+                <h1>Home</h1>
             </div>
         )
     }
 }
 
-export default Home;
+module.exports = Home

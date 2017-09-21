@@ -1,7 +1,7 @@
 import React from 'react'
 import PureRenderMixin from 'react-addons-pure-render-mixin'
 
-class Detail extends React.Component {
+class User extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -9,10 +9,10 @@ class Detail extends React.Component {
     render() {
         return (
             <div>
-                <h1>Detail</h1>
+                <h1>User</h1>
             </div>
         )
     }
 }
 
-module.exports = Detail
+module.exports = User
