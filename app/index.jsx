@@ -1,14 +1,25 @@
 import React from 'react';
 import { render } from 'react-dom';
 
-// 通用样式
-import './static/css/common.less'
+import { hashHistory } from 'react-router';
+import RouteMap from './router/routeMap';
 
-import Hello from './containers/Hello/';
+// 测试 fetch 的功能
+import { getData, postData } from './fetch/test.js'
+// import { getData, postData } from './fetch/data.js'
+getData();
+postData();
+
+class Hello extends React.Component {
+    render() {
+        return (
+            <p>hello world ~~~~~111</p>
+        )
+    }
+}
 
 render(
-    <Hello/>,
+    <Hello />,
     document.getElementById('root')
 )
-
 
