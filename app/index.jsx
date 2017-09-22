@@ -1,18 +1,22 @@
 import React from 'react'
 import { render } from 'react-dom'
-// import { Provider } from 'react-redux'
-import { hashHistory } from 'react-router'
-// import configureStore from './store/configureStore'
+import { Provider } from 'react-redux'
+import configureStore from './store/configureStore'
 
 // import './static/css/common.less'
-// import './static/css/font.css'
 
-// 创建 Redux 的 store 对象
-// const store = configureStore()
+// 引用并执行 redux-demo
+// import fn from './redux-demo.js'
+// fn()
 
-import RouteMap from './router/routeMap';
+import Hello from './containers/Hello'
+
+const store = configureStore()
 
 render(
-    <RouteMap history={hashHistory}/>,
+    <Provider store={store}>
+        <Hello/>
+    </Provider>,
     document.getElementById('root')
 )
+
