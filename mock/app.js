@@ -1,3 +1,4 @@
+// 示例
 const Koa = require('koa');
 const router = require('koa-router')();
 const bodyParser = require('koa-bodyparser');
@@ -9,31 +10,36 @@ app.use(async (ctx, next) => {
     await next();
 });
 
+// add url-route:
 router.get('/', async (ctx, next) => {
-    ctx.response.body = `<h1>Index</h1>
-        <form action="/signin" method="post">
-            <p>Name: <input name="name" value="koa"></p>
-            <p>Password: <input name="password" type="password"></p>
-            <p><input type="submit" value="Submit"></p>
-        </form>`;
+    ctx.response.body = 'hello koa !';
 });
 
-router.post('/signin', async (ctx, next) => {
-    var
-        name = ctx.request.body.name || '',
-        password = ctx.request.body.password || '';
-    console.log(`signin with name: ${name}, password: ${password}`);
-    if (name === 'koa' && password === '12345') {
-        ctx.response.body = `<h1>Welcome, ${name}!</h1>`;
-    } else {
-        ctx.response.body = `<h1>Login failed!</h1>
-        <p><a href="/">Try again</a></p>`;
+router.get('/api', async (ctx, next) => {
+    ctx.response.body = 'test data';
+});
+
+router.get('/api/1', async (ctx, next) => {
+    ctx.response.body = 'test data 1';
+});
+
+router.get('/api/2', async (ctx, next) => {
+    ctx.response.body = {
+        a: 1,
+        b: '123'
     }
+});
+
+router.post('/api/post', async (ctx, next) => {
+    console.log(JSON.stringify(ctx.request.body));
+    ctx.response.body = JSON.stringify(ctx.request.body);
+
 });
 
 app.use(bodyParser());
 app.use(router.routes());
 
-app.listen(3001);
-console.log('app started at port 3001...');
+app.listen(3000);
+console.log('app started at port 3000...');
+
 
